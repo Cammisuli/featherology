@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { Container } from '../components/container';
 import { StyledComponent } from '../utils/types';
 
+import baseStyles from '../utils/base-styles';
+
 import './index.css';
 
 const Logo = ({ className }: StyledComponent) => (
@@ -27,15 +29,28 @@ const Links: React.StatelessComponent<StyledComponent> = ({ className }) => (
 )
 
 const StyledLinks = styled(Links) `
+  font-family: 'nunito';
   display: inline-block;
   margin: 0;
   text-transform: uppercase;
 
   span {
-    padding: 0 15px;
-    border-right: 1px solid black;
+    padding: 0 ${baseStyles.spacing.defaultPadding};
+    border-right: 1px solid ${baseStyles.colors.black};
     &:last-child {
       border-right: none;
+    }
+    a {
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      color: ${baseStyles.colors.black};
+      &:hover{
+        color: ${baseStyles.colors.accent};
+      }
+      &:active {
+        background-color: ${baseStyles.colors.accent};
+        color: white;
+      }
     }
   }
 `
@@ -55,6 +70,10 @@ const StyledHeader = styled(Header) `
     justify-content: space-between;
   }
 `
+
+const Footer = () => (
+  <div></div>
+);
 
 const TemplateWrapper = ({ children, className }: any) => (
   <div className={className}>

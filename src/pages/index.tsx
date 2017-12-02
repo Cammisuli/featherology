@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-
+import { HeroImage } from '../components/hero-image';
 const IndexPage: React.StatelessComponent = () => (
   <div>
-    <h1>Hi people</h1>
-    <Link to="/page-2/">Go to page 2</Link>
+    <HeroImage />
   </div>
 )
+IndexPage.displayName = 'index';
 
 export default IndexPage
