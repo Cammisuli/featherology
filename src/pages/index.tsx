@@ -1,11 +1,34 @@
 import * as React from 'react'
+import styled from 'styled-components';
+
 import Link from 'gatsby-link'
 import { HeroImage } from '../components/hero-image';
-const IndexPage: React.StatelessComponent = () => (
-  <div>
+import { StyledComponent } from '../utils/types';
+const IndexPage: React.StatelessComponent<StyledComponent> = ({ className }) => (
+  <index className={className}>
     <HeroImage />
-  </div>
+    <div className="placeholder">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </index>
 )
-IndexPage.displayName = 'index';
 
-export default IndexPage
+
+const StyledIndex = styled(IndexPage) `
+div.placeholder {
+  display: flex;
+    justify-content: space-evenly;
+  div {
+    display: inline-block;
+    height: 500px;
+    width: 300px;
+    background-color: #d5084fc7;
+    outline: 1px solid red;
+  }
+}
+`
+
+export default StyledIndex

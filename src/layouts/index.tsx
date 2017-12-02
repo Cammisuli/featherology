@@ -9,15 +9,8 @@ import { StyledComponent } from '../utils/types';
 import baseStyles from '../utils/base-styles';
 
 import './index.css';
-
-const Logo = ({ className }: StyledComponent) => (
-  <img className={className} src="https://placeholdit.co/i/260x40" alt="logo" />
-)
-const StyledLogo = styled(Logo) `
-  margin: 0;
-  width: 260px;
-  height: 40px;
-`
+import { Footer } from '../components/footer/footer';
+import { Logo } from '../components/logo';
 
 const Links: React.StatelessComponent<StyledComponent> = ({ className }) => (
   <div className={className}>
@@ -33,7 +26,6 @@ const StyledLinks = styled(Links) `
   display: inline-block;
   margin: 0;
   text-transform: uppercase;
-
   span {
     padding: 0 ${baseStyles.spacing.defaultPadding};
     border-right: 1px solid ${baseStyles.colors.black};
@@ -56,24 +48,20 @@ const StyledLinks = styled(Links) `
 `
 
 const Header: React.StatelessComponent<StyledComponent> = ({ className }) => (
-  <div className={className}>
+  <header className={className}>
     <Container alignVertically className={"container"}>
-      <StyledLogo />
+      <Logo />
       <StyledLinks />
     </Container>
-  </div>
+  </header>
 )
 
 const StyledHeader = styled(Header) `
-  height: 80px;
+  flex: 0 0 80px;
   .container {
     justify-content: space-between;
   }
 `
-
-const Footer = () => (
-  <div></div>
-);
 
 const TemplateWrapper = ({ children, className }: any) => (
   <div className={className}>
@@ -89,15 +77,19 @@ const TemplateWrapper = ({ children, className }: any) => (
     <div className="content">
       {children()}
     </div>
+    <Footer />
   </div>
 )
 
 const StyledTemplate = styled(TemplateWrapper) `
   display: flex;
   flex-flow: column nowrap;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
   
   .content {
-
+    flex: 1 1 auto;
   }
 `
 

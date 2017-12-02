@@ -29,9 +29,11 @@ const typography = new Typography({
       ],
       headerFontFamily: ['Libre Baskerville', 'serif'],
       bodyFontFamily: ['Open Sans'],
+      baseFontSize: '14px',
       overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
         'h1,h2,h3': {
-          color: baseStyles.colors.black
+          color: baseStyles.colors.black,
+          fontStyle: 'italic'
         }
       })
 })
