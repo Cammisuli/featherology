@@ -10,7 +10,15 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`
       }
     },
-    'gatsby-plugin-typescript',
+    {
+      resolve: "gatsby-plugin-typescript",
+      options: {
+        transpileOnly: false,
+        compilerOptions: {
+          target: 'es5'
+        }
+      }
+    },
     'gatsby-plugin-styled-components'
   ]
 }
