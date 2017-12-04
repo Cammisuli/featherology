@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import * as img from '../images/home-image.jpg';
 import { StyledComponent } from '../utils/types';
-import baseStyles from '../utils/base-styles';
+import baseStyles, {media} from '../utils/base-styles';
 
 
 const HeroComp = ({ className }: StyledComponent) => (
@@ -13,8 +13,7 @@ const HeroComp = ({ className }: StyledComponent) => (
             <h1>Featherology</h1>
             <span className="divider"></span>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, corrupti optio tenetur repudiandae consequatur repellendus esse sed mollitia commodi nemo dignissimos error odit?
-                Neque asperiores, numquam error aliquam dignissimos ut?
+            Making the world a prettier place one feather at a time 
             </p>
         </div>
     </div>
@@ -33,8 +32,14 @@ text-transform: uppercase;
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 60%;
     height: 100%;
+    padding: ${baseStyles.spacing.defaultPadding};
+    ${media.desktop`
+    width: 60%;
+    `}
+    ${media.tablet`
+    width: 60%;
+    `}
 }
 h1 {
     font-style: italic;
@@ -43,6 +48,9 @@ h1 {
     letter-spacing: 5px;
     font-weight: 100;
     line-height: 100px;
+    ${media.phone`
+    font-size: 45px;
+    `}
 }
 .divider {
     width: 230px;

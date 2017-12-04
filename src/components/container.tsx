@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import baseStyles, { media } from '../utils/base-styles';
 
 interface ContainerProps {
     alignVertically?: boolean;
@@ -10,13 +11,16 @@ export const Container = styled.div`
     margin: 0 auto;
     display: flex;
     height: 100%;
-    ${(props: ContainerProps) => props.alignVertically ? 'align-items: center;'  : ''};
-    @media only screen and (max-width: 1200px) {
-        width: 950px;
-    }
+    padding: ${baseStyles.spacing.defaultPadding};
 
-    @media only screen and (max-width: 1024px) {
-        width: 768px;
-    }
+    ${(props: ContainerProps) => props.alignVertically ? 'align-items: center;' : ''};
+    
+    ${media.tablet`
+        width: 950px;
+    `}
+
+    ${media.phone`
+        width: 100%;
+    `}
 
 `

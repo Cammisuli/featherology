@@ -2,46 +2,71 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import { MdMenu } from 'react-icons/lib/md';
 
 import { Container } from '../components/container';
 import { StyledComponent } from '../utils/types';
 
-import baseStyles from '../utils/base-styles';
+import baseStyles, { media } from '../utils/base-styles';
 
 import './index.css';
 import { Footer } from '../components/footer/footer';
 import { Logo } from '../components/logo';
 
-const Links: React.StatelessComponent<StyledComponent> = ({ className }) => (
-  <div className={className}>
-    <span><Link to="/">Home</Link></span>
-    <span><Link to="/rentals">Rentals</Link></span>
-    <span><Link to="/about">About</Link></span>
-    <span><a href="">Shop</a></span>
-  </div>
-)
+class Links extends React.Component<StyledComponent, { menuOpened: boolean }> {
+
+  constructor(props: StyledComponent) {
+    super(props);
+    this.state = {
+      menuOpened: false
+    };
+  }
+
+  render() {
+    return <div className={this.props.className}>
+    <div className="mobile" onClick={() => this.setState({menuOpened: !this.state.menuOpened})}>
+        <MdMenu />
+      </div>
+      <div className={`links ${this.state.menuOpened ? 'show' : ''}`}>
+        <span><Link to="/">Home</Link></span>
+        <span><Link to="/rentals">Rentals</Link></span>
+        <span><Link to="/about">About</Link></span>
+        <span><a href="">Shop</a></span>
+      </div>
+    </div>
+  }
+}
+
 
 const StyledLinks = styled(Links) `
   font-family: 'nunito';
   display: inline-block;
   margin: 0;
   text-transform: uppercase;
-  span {
-    padding: 0 ${baseStyles.spacing.defaultPadding};
-    border-right: 1px solid ${baseStyles.colors.black};
-    &:last-child {
-      border-right: none;
+  .mobile {
+    ${media.desktop`
+      display: none;
+    `}
+    ${media.tablet`
+    display: none;
+    `}
+  }
+  .links {
+    ${media.phone`
+    display: none;
+    &.show {
+      display: initial;
     }
-    a {
-      text-decoration: none;
-      letter-spacing: 1.5px;
-      color: ${baseStyles.colors.black};
-      &:hover{
-        color: ${baseStyles.colors.accent};
+    `}
+    span {
+      padding: 0 ${baseStyles.spacing.defaultPadding};
+      border-right: 1px solid ${baseStyles.colors.black};
+      &:last-child {
+        border-right: none;
       }
-      &:active {
-        background-color: ${baseStyles.colors.accent};
-        color: white;
+      a {
+        letter-spacing: 1.5px;
+        color: ${baseStyles.colors.black};
       }
     }
   }
@@ -87,6 +112,7 @@ const StyledTemplate = styled(TemplateWrapper) `
   height: 100vh;
   width: 100vw;
   position: relative;
+  font-size: 14px;
   
   .content {
     flex: 1 1 auto;

@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { FaPhone, FaGlobe, FaEnvelope } from 'react-icons/lib/fa'
 
 import styled from 'styled-components';
-import baseStyles from '../../utils/base-styles';
+import baseStyles, {media} from '../../utils/base-styles';
 import { StyledComponent } from '../../utils/types';
 import { Logo } from '../logo';
 import { Container } from '../container';
@@ -20,19 +21,31 @@ letter-spacing: 1.5px;
 font-weight: 200;
 `
 
-interface Col {
+interface ColumnProps {
     size?: string;
 }
 
 const Column = styled.div`
 padding-right: ${baseStyles.spacing.defaultPadding};
-flex: ${(props: Col) => props.size || 1};
+flex: ${(props: ColumnProps) => props.size || 1};
 h3 {
     color: white;
     line-height: 40px;
 }
 .description {
     margin-top: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    span {
+        display: inline-flex;
+        svg {
+            margin-right: 10px;
+            color: ${baseStyles.colors.accent}
+        }
+        h4, a {
+            color: ${baseStyles.colors.light}
+        }
+    }
 }
 `
 
@@ -43,10 +56,13 @@ const footer: React.StatelessComponent<StyledComponent> = ({ className }) => {
     return <footer className={className}>
         <div className="footerContent">
             <Container>
-                <Column size="0 0 450px">
+                <Column>
                     <Logo />
                     <div className="description">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed numquam totam libero ratione odio eum dolorem quaerat? Perspiciatis commodi neque minima. Numquam maxime deserunt omnis molestias exercitationem iusto ipsam porro?
+                    <p>Lorem ipsum some stuf</p>
+                    <span><FaGlobe /><h4>Address here</h4></span>
+                    <span><FaPhone /><h4>+1 647 567 8154</h4></span>
+                    <span><FaEnvelope /><h4><a href="mailto:info@featherology.com">info@featherology.com</a></h4></span>
                     </div>
                 </Column>
                 {/* <Column></Column> */}
@@ -63,11 +79,19 @@ flex-flow: column nowrap;
 flex: 0 0 350px;
 width: 100%;
 background-color: ${baseStyles.colors.blackLight};
+${media.phone`
+flex: 0 0 auto;
+`}
 .footerContent {
-flex: 1 1 auto;
-color: ${baseStyles.colors.light};
-display: flex;
-padding-top: ${baseStyles.spacing.defaultPadding};
-justify-content: space-between;
+    flex: 1 1 auto;
+    color: ${baseStyles.colors.light};
+    display: flex;
+    padding-top: ${baseStyles.spacing.defaultPadding};
+    justify-content: space-between;
+    ${Container} {
+        ${media.phone`
+        flex-flow: column nowrap;
+        `}
+    }
 }
 `
