@@ -7,6 +7,7 @@ declare module '*.jpg' {
 
 declare module JSX {
     interface IntrinsicElements {
-      "index": any
+      "index": any,
+      "badge": any
     }
   }

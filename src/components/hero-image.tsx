@@ -32,7 +32,6 @@ text-transform: uppercase;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100%;
     padding: ${baseStyles.spacing.defaultPadding};
     ${media.desktop`
     width: 60%;

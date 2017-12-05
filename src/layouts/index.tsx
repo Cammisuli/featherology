@@ -2,7 +2,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
-import { MdMenu } from 'react-icons/lib/md';
+import MdMenu = require('react-icons/lib/md/menu');
 
 import { Container } from '../components/container';
 import { StyledComponent } from '../utils/types';
@@ -25,9 +25,9 @@ class Links extends React.Component<StyledComponent, { menuOpened: boolean }> {
   render() {
     return <div className={this.props.className}>
     <div className="mobile" onClick={() => this.setState({menuOpened: !this.state.menuOpened})}>
-        <MdMenu />
+        <MdMenu size="30" style={{cursor: 'pointer', color: baseStyles.colors.accent}} />
       </div>
-      <div className={`links ${this.state.menuOpened ? 'show' : ''}`}>
+      <div className={`links ${this.state.menuOpened ? 'show' : ''}`} onClick={() => this.setState({menuOpened: false})}>
         <span><Link to="/">Home</Link></span>
         <span><Link to="/rentals">Rentals</Link></span>
         <span><Link to="/about">About</Link></span>
@@ -54,8 +54,17 @@ const StyledLinks = styled(Links) `
   .links {
     ${media.phone`
     display: none;
+    position: absolute;
+    margin-top: ${baseStyles.spacing.defaultPadding};
     &.show {
-      display: initial;
+      display: flex;
+      flex-flow: column nowrap;
+      right: 0;
+      align-items: flex-end;
+      background-color: white;
+      span {
+        padding-bottom: 10px;
+      }
     }
     `}
     span {
@@ -116,6 +125,7 @@ const StyledTemplate = styled(TemplateWrapper) `
   
   .content {
     flex: 1 1 auto;
+    padding-bottom: 30px;
   }
 `
 

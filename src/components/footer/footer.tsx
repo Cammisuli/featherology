@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { FaPhone, FaGlobe, FaEnvelope } from 'react-icons/lib/fa'
-
+import FaGlobe = require('react-icons/lib/fa/globe');
+import FaEnvelope = require('react-icons/lib/fa/envelope');
+import FaPhone = require('react-icons/lib/fa/phone');
 import styled from 'styled-components';
+
 import baseStyles, {media} from '../../utils/base-styles';
 import { StyledComponent } from '../../utils/types';
 import { Logo } from '../logo';
