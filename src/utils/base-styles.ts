@@ -4,14 +4,15 @@ export const baseStyles = {
         black: '#505050',
         blackLight: '#343434',
         accent: '#c39738',
-        light: '#999'
+        light: '#999',
+        offWhite: '#fafafa'
     },
     spacing: {
         defaultPadding: '25px'
     },
     fonts: {
-        nunito: 'Nunito',
-        fancy: 'Libre Baskerville'
+        nunito: 'Nunito, sans-serif',
+        fancy: 'Libre Baskerville, serif'
     }
 }
 export default baseStyles;

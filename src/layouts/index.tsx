@@ -31,7 +31,7 @@ class Links extends React.Component<StyledComponent, { menuOpened: boolean }> {
         <span><Link to="/">Home</Link></span>
         <span><Link to="/rentals">Rentals</Link></span>
         <span><Link to="/about">About</Link></span>
-        <span><a href="">Shop</a></span>
+        <span><a href="//featherology2.etsy.com" target="_blank">Shop</a></span>
       </div>
     </div>
   }
@@ -125,7 +125,6 @@ const StyledTemplate = styled(TemplateWrapper) `
   
   .content {
     flex: 1 1 auto;
-    padding-bottom: 30px;
   }
 `
 

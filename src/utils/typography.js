@@ -31,9 +31,15 @@ const typography = new Typography({
   bodyFontFamily: ['Open Sans'],
   baseFontSize: '14px',
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
+    'h1': {
+      letterSpacing: '3px'
+    },
+    'h2,h3,h4': {
+      letterSpacing: '1.5px'
+    },
     'h1,h2,h3,h4': {
       color: baseStyles.colors.black,
-      fontStyle: 'italic'
+      fontStyle: 'italic',
     },
     'a': {
       textDecoration: 'none',

@@ -4,6 +4,11 @@ import baseStyles, { media } from '../utils/base-styles';
 
 interface ContainerProps {
     alignVertically?: boolean;
+
+    /**
+     * Sets flex-flow: column wrap;
+     */
+    column?: boolean;
 }
 
 export const Container = styled.div`    
@@ -12,9 +17,20 @@ export const Container = styled.div`
     display: flex;
     height: 100%;
     padding: ${baseStyles.spacing.defaultPadding};
-
-    ${(props: ContainerProps) => props.alignVertically ? 'align-items: center;' : ''};
     
+    ${(props: ContainerProps) => {
+        let pos = '';
+        if (props.alignVertically) {
+            if (props.column) {
+                pos = 'justify-content: center;';
+            } else {
+                pos = 'align-items: center;';
+            }
+        }
+        return pos;
+    }};
+    ${(props: ContainerProps) => props.column ? 'flex-flow: column nowrap' : ''};
+
     ${media.tablet`
         width: 950px;
     `}

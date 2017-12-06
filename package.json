@@ -9,6 +9,7 @@
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-styled-components": "^2.0.2",
     "react-icons": "^2.2.7",
+    "react-photo-gallery": "^6.0.18",
     "styled-components": "^2.2.3"
   },
   "devDependencies": {
