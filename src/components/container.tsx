@@ -9,6 +9,7 @@ interface ContainerProps {
      * Sets flex-flow: column wrap;
      */
     column?: boolean;
+    wrap?: boolean;
 }
 
 export const Container = styled.div`    
@@ -30,6 +31,7 @@ export const Container = styled.div`
         return pos;
     }};
     ${(props: ContainerProps) => props.column ? 'flex-flow: column nowrap' : ''};
+    ${(props: ContainerProps) => props.wrap ? 'flex-wrap: wrap; justify-content: space-between;': ''};
 
     ${media.tablet`
         width: 950px;

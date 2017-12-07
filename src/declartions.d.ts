@@ -10,8 +10,9 @@ declare module JSX {
     interface IntrinsicElements {
       "index": any
       "badge": any
-      "banner": any
+      "banner": any;
       "rentals": any;
       "about": any;
+      "rental": any;  
     }
   }
