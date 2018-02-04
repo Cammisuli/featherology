@@ -2,26 +2,30 @@ import React from 'react';
 import FaBook = require('react-icons/lib/fa/book');
 import FaGlobe = require('react-icons/lib/fa/globe');
 import MdCardGiftcard = require('react-icons/lib/md/card-giftcard');
-import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 
 import { Badge } from '../components/badge';
 import { Container } from '../components/container';
+import { Gallery } from '../components/gallery';
 import { HeroImage } from '../components/hero-image';
 import { baseStyles } from '../utils/base-styles';
 import { StyledComponent } from '../utils/types';
 
-const IndexPage: React.StatelessComponent<StyledComponent> = ({
-    className
+const IndexPage: React.StatelessComponent<StyledComponent & { data: any }> = ({
+    className,
+    data
 }) => (
     <index className={className}>
         <HeroImage />
         <Container>
             <div className="snippet">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-                ea aperiam repellendus ratione necessitatibus sequi, aliquam
-                reiciendis qui. Id error eius numquam eos natus fugiat sequi
-                illo iusto consequuntur vitae.
+                Welcome to Featherology!
+                <br />
+                <br />
+                Our specialty is feathers, and we carry a variety of Feather
+                centerpieces for purchase and for rent for all of your event
+                needs! Everything is fully customizable so if you have something
+                in mind, shoot us a message!
             </div>
         </Container>
         <div className="badges">
@@ -35,7 +39,7 @@ const IndexPage: React.StatelessComponent<StyledComponent> = ({
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             </Badge>
         </div>
-        {/* <Gallery photos={PHOTOS} /> */}
+        <Gallery images={data.homeImages.images} />
     </index>
 );
 
@@ -59,3 +63,19 @@ const StyledIndex = styled(IndexPage)`
 `;
 
 export default StyledIndex;
+
+export const pageQuery = graphql`
+    query HomeImageQuery {
+        homeImages: allImageSharp(filter: { id: { regex: "/feathers/" } }) {
+            images: edges {
+                node {
+                    ... on ImageSharp {
+                        resolutions(width: 300) {
+                            ...GatsbyImageSharpResolutions
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;

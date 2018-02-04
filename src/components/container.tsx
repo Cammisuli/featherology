@@ -35,7 +35,7 @@ export const Container = styled.div`
         props.wrap ? 'flex-wrap: wrap; justify-content: space-between;' : ''};
 
     ${media.tablet`
-        width: 950px;
+        width: 100%;
     `} ${media.phone`
         width: 100%;
     `};

@@ -20,7 +20,7 @@ const HeroComp = ({ className }: StyledComponent) => (
 )
 
 export const HeroImage = styled(HeroComp) `
-height: 400px;
+height: 300px;
 background-image: url(${img});
 display: flex;
 flex-flow: column;
