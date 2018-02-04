@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 

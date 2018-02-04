@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import FaGlobe = require('react-icons/lib/fa/globe');
 import FaEnvelope = require('react-icons/lib/fa/envelope');
 import FaPhone = require('react-icons/lib/fa/phone');
