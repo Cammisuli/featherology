@@ -9,6 +9,7 @@ interface ContainerProps {
      */
     column?: boolean;
     wrap?: boolean;
+    noPadding?: boolean;
 }
 
 export const Container = styled.div`
@@ -16,7 +17,15 @@ export const Container = styled.div`
     margin: 0 auto;
     display: flex;
     height: 100%;
-    padding: ${baseStyles.spacing.defaultPadding};
+    ${(props: ContainerProps) => {
+        let padding = 'padding:';
+        if (props.noPadding) {
+            padding += `0`;
+        } else {
+            padding += `${baseStyles.spacing.defaultPadding}`;
+        }
+        return padding;
+    }};
 
     ${(props: ContainerProps) => {
         let pos = '';

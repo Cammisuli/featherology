@@ -19,10 +19,10 @@ class gallery extends React.PureComponent<GalleryProps> {
                 container: '.gallery-wrap',
                 packed: 'data-packed',
                 sizes: [
-                    { columns: 1, gutter: 5 },
-                    { mq: '768px', columns: 2, gutter: 5 },
-                    { mq: '1024px', columns: 3, gutter: 5 },
-                    { mq: '1225px', columns: 5, gutter: 5 }
+                    { columns: 1, gutter: 0 },
+                    { mq: '768px', columns: 2, gutter: 10 },
+                    { mq: '1024px', columns: 3, gutter: 10 },
+                    { mq: '1225px', columns: 4, gutter: 10 }
                 ]
             });
             this.bricks.resize(true);
@@ -35,11 +35,7 @@ class gallery extends React.PureComponent<GalleryProps> {
             <div className={this.props.className + ' gallery-wrap'}>
                 {this.props.images.map((image: any, index: number) => {
                     return (
-                        <Img
-                            key={index}
-                            resolutions={image.node.resolutions}
-                            style={{ margin: '10px' }}
-                        />
+                        <Img key={index} resolutions={image.node.resolutions} />
                     );
                 })}
             </div>

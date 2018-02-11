@@ -70,8 +70,8 @@ export const pageQuery = graphql`
             images: edges {
                 node {
                     ... on ImageSharp {
-                        resolutions(width: 300) {
-                            ...GatsbyImageSharpResolutions
+                        resolutions(width: 375) {
+                            ...GatsbyImageSharpResolutions_withWebp
                         }
                     }
                 }

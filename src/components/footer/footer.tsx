@@ -62,7 +62,11 @@ const footer: React.StatelessComponent<StyledComponent> = ({ className }) => {
                     <Column>
                         <Logo />
                         <div className="description">
-                            <p>Lorem ipsum some stuf</p>
+                            <p>
+                                Our specialty is feathers, and we carry a
+                                variety of Feather centerpieces for purchase and
+                                for rent for all of your event needs!
+                            </p>
                             <span>
                                 <FaGlobe />
                                 <h4>70 Belfield road unit 12</h4>
